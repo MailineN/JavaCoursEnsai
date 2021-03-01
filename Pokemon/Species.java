@@ -1,13 +1,12 @@
 package Pokemon;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Species {
-    private int number; 
-    private String name; 
-    private Type type; 
+    static final AtomicInteger id = new AtomicInteger(0); 
+    public String name; 
+    public Type type; 
 
-    public Species(int number, String name, Type type){
-        assert number >0 ; 
-        this.number = number; 
+    public Species(String name, Type type){
         this.name = name;
         this.type = type;
     }
