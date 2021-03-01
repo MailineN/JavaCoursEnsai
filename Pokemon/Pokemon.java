@@ -6,7 +6,8 @@ public class Pokemon {
     public String name;
     public Species species ;
     public double size; 
-    public int level; 
+    public int level;
+    public int xp; 
     
 
     public Pokemon(String name, Species specie, double size, int level){
@@ -21,10 +22,18 @@ public class Pokemon {
     }
 
     public void summary(){
-        System.out.println("Name :" + name); 
-        System.out.println("Specie :" + species.name + "of type" + species.type.type); 
-        System.out.println("Size :" + size + "inches"); 
-        System.out.println("Current level :" + level); 
+        System.out.println("Name : " + name); 
+        System.out.println("Specie : " + species.name + " of type " + species.type.type); 
+        System.out.println("Size : " + size + " inches"); 
+        System.out.println("Current level : " + level); 
+        System.out.println("Current xp : " + xp); 
     }   
     
+    public void receiveXP(int xp){
+        this.xp += xp;
+    }
+
+    public void eatSweets(Sweets sweet){
+        this.xp += sweet.xpvalue;
+    }
 }
