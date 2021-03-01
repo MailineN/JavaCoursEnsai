@@ -8,6 +8,8 @@ public class Pokemon {
     public double size; 
     public int level;
     public int xp; 
+    public double hp; 
+    public int str; 
     
 
     public Pokemon(String name, Species specie, double size, int level){
@@ -18,6 +20,8 @@ public class Pokemon {
         this.name = name; 
         this.size = size; 
         this.level = level;
+        this.hp = specie.hp;
+        this.str = specie.str;
 
     }
 
@@ -29,11 +33,40 @@ public class Pokemon {
         System.out.println("Current xp : " + xp); 
     }   
     
-    public void receiveXP(int xp){
-        this.xp += xp;
+    public void receiveXP(int exp){
+        this.xp += exp;
+        if (this.xp >= 5 && this.level == 1){
+            this.xp = 0; 
+            this.level = 2;
+        };
+        if (this.xp >= 15 && this.level == 2){
+            this.xp = 0; 
+            this.level = 3;
+        };
+        if (this.xp >=30 && this.level == 3){
+            this.xp = 0; 
+            this.level = 4;
+        };
+        if (this.xp >= 100 && this.level == 4){
+            this.xp = 0; 
+            this.level = 5;
+        }
     }
 
     public void eatSweets(Sweets sweet){
         this.xp += sweet.xpvalue;
+    }
+
+    public void attack(Pokemon pkmn){
+        double mult = 1.0 +  Math.random();
+        if (pkmn.hp - mult*str <1.0){
+            pkmn.hp = 0;
+            System.out.println(pkmn.name+" fainted! ");
+            this.xp += 5; 
+        } else {
+            pkmn.hp -= mult*str;
+            System.out.println(pkmn.name+"'s Hp remaining : "+ pkmn.hp);
+        };
+
     }
 }
