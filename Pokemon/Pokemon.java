@@ -26,11 +26,12 @@ public class Pokemon {
     }
 
     public void summary(){
+        System.out.println("\n Pokemon summary");
         System.out.println("Name : " + name); 
         System.out.println("Specie : " + species.name + " of type " + species.type.type); 
         System.out.println("Size : " + size + " inches"); 
         System.out.println("Current level : " + level); 
-        System.out.println("Current xp : " + xp); 
+        System.out.println("Current xp : " + xp +"\n"); 
     }   
     
     public void receiveXP(int exp){
@@ -61,11 +62,11 @@ public class Pokemon {
         double mult = 1.0 +  Math.random();
         if (pkmn.hp - mult*str <1.0){
             pkmn.hp = 0;
-            System.out.println(pkmn.name+" fainted! ");
+            System.out.println(pkmn.name+" fainted! \n");
             this.xp += 5; 
         } else {
             pkmn.hp -= mult*str;
-            System.out.println(pkmn.name+"'s Hp remaining : "+ pkmn.hp);
+            System.out.println(pkmn.name+"'s Hp remaining : "+ pkmn.hp + "\n");
         };
 
     }
