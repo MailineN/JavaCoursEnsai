@@ -6,7 +6,7 @@ public class Pokemon {
     public final String name;
     public Species species ;
     public double size; 
-    public int level;
+    public int level =1 ;
     public int xp; 
     public double hp; 
     public int str; 
