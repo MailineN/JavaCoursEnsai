@@ -7,9 +7,10 @@ public class Main {
   public static void main(String[] args) {
     Type typeFeu = new Type("Fire");
     Species poussifeu = new Species("Poussifeu", typeFeu, 50.0, 10);
-    Pokemon pipou = new Pokemon("Pipou", poussifeu, 5.2, 5);
-    Pokemon pouf = new Pokemon("Pouf", poussifeu, 5.2, 5);
+    Pokemon pipou = new Pokemon("Pipou", poussifeu, 5.2,1);
+    Pokemon pouf = new Pokemon("Pouf", poussifeu, 5.2,1);
     pipou.summary();
+    pouf.summary();
     for (int i = 0; i < 100; i++) {
       pipou.receiveXP(1);
     }

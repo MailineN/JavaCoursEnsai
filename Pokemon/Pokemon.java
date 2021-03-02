@@ -2,7 +2,8 @@ package Pokemon;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Pokemon {
-    static final AtomicInteger id = new AtomicInteger(0); 
+    public int id = 0;
+    public static int id_next = 0; 
     public final String name;
     public Species species ;
     public double size; 
@@ -14,8 +15,10 @@ public class Pokemon {
 
     public Pokemon(String name, Species specie, double size, int level){
         assert size > 0.0 ; 
-        assert level >=1;
-        assert level <= 5; 
+        assert level >= 1;
+        assert level <= 5;
+        this.id = id_next;
+        id_next += 1;
         this.species = specie; 
         this.name = name; 
         this.size = size; 
@@ -27,7 +30,7 @@ public class Pokemon {
 
     public void summary(){
         System.out.println("\n Pokemon summary");
-        System.out.println("Name : " + name); 
+        System.out.println("Name : " + name+" ID : "+ id); 
         System.out.println("Specie : " + species.name + " of type " + species.type.type); 
         System.out.println("Size : " + size + " inches"); 
         System.out.println("Current level : " + level); 
