@@ -3,7 +3,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Pokemon {
     static final AtomicInteger id = new AtomicInteger(0); 
-    public String name;
+    public final String name;
     public Species species ;
     public double size; 
     public int level;
