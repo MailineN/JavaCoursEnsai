@@ -8,10 +8,10 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("hello world!");
 		Specie poussifeu = new Specie(0,"poussifeu","GRASS",10,1);
-		Pokemon pipou = new Pokemon("Pipou", 12f, 1, poussifeu);
+		Pokemon pipou = new Pokemon("Pipou", 12f, 1, poussifeu,40);
 		System.out.println(pipou.surname);
 		System.out.println(pipou.specie.name);
-		Pokemon pouf = new Pokemon("Pouf", 12f, 58, poussifeu);
+		Pokemon pouf = new Pokemon("Pouf", 12f, 58, poussifeu,30);
 		System.out.println(pipou.level);
 		System.out.println(pipou.getId());
 		System.out.println(pouf.getId());
@@ -23,7 +23,7 @@ public class Main {
 			System.out.println(pipou);
 		}
 		
-		Sweet s = new Sweet("Malabar", 3);
+		Sweet s = new Sweet("Malabar", 150, 3);
 		pipou.eatSweet(s);
 		System.out.println(pipou);
 		System.out.println(pouf);

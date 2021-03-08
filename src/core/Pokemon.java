@@ -10,13 +10,14 @@ public class Pokemon {
 	public int xp=0;
 	public int hp;
 	public int strength;
+	public int defense; 
 
-	public Pokemon(String surname, float size, int level, Specie specie) {
+	public Pokemon(String surname, float size, int level, Specie specie, int defense) {
 		this.id = counter;
 		counter++;
 		this.surname = surname;
 		this.size = size;
-		if (level < 0 || level >5){
+		if (level < 1 || level >5){
 			System.out.println("Invalid level, default to 0");
 			this.level = 0;
 		} else {
@@ -27,6 +28,7 @@ public class Pokemon {
 		this.specie = specie;
 		this.hp=specie.initialHp;
 		this.strength=specie.initialStrength;
+		this.defense = defense; 
 	}
 
 	public static int getLevelFromXp(int xp) {
@@ -47,7 +49,7 @@ public class Pokemon {
 	}
 
 	public void attack(Pokemon target) {
-		target.hp-=strength;
+		target.hp-=strength*(1-target.defense /100);
 	}
 
 	public void receiveXP(int toto){
@@ -64,8 +66,8 @@ public class Pokemon {
 		}
 	}
 
-	public Pokemon(String surname, float size, int level, Specie specie, int xp) {
-		this(surname,size,level,specie);
+	public Pokemon(String surname, float size, int level, Specie specie, int defense ,int xp) {
+		this(surname,size,level,specie,defense);
 		this.xp=xp;
 	}
 
@@ -80,6 +82,11 @@ public class Pokemon {
 		}
 
 	//same process for setters
+
+	public void defend(){
+		defense+=10;
+	}
+
 
 
 

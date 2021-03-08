@@ -1,14 +1,22 @@
 package core;
 
-public class Pokeball {
+public class Pokeball extends Items{
     public final static int base=37;
     public int mult; 
-    Pokeball(String name; int price, int mult){
+    public Pokeball(String name, int price){
+        super(name,price);
         if (name != "Greatball" && name != "Ultraball" ){
-            super("GreatBall",price);
-            System.out.println("Invalid name, default to Greatball");
+            this.name = "Greatball";
+            System.out.println("Invalid name, default to Greatball");}
+        if (name == "Greatball"){
+            this.mult = 2;
         } else {
-            super(name,price);
+            this.mult = 3;
         }
     }
+
+    public int getEfficiency(){
+        return base*mult;
+    }
+        
 }
