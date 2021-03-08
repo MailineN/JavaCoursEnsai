@@ -1,7 +1,7 @@
 package core;
 
 public class Specie {
-	public int number;
+	private int number;
 	public String name;
 	public String type;
 	public int initialHp;

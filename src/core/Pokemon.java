@@ -1,8 +1,8 @@
 package core;
 
 public class Pokemon {
-	public int id;
-	public static int counter=0;
+	private int id;
+	private static int counter=0;
 	public final String surname;
 	public float size;
 	public int level=1;
@@ -16,11 +16,14 @@ public class Pokemon {
 		counter++;
 		this.surname = surname;
 		this.size = size;
-		if(level<=0 || level>5){
-			System.out.println("Niveau incorrect pour "+surname);
-		}else{
+		if (level < 0 || level >5){
+			System.out.println("Invalid level, default to 0");
+			this.level = 0;
+		} else {
 			this.level = level;
 		}
+		this.level = level;
+		
 		this.specie = specie;
 		this.hp=specie.initialHp;
 		this.strength=specie.initialStrength;
@@ -68,10 +71,15 @@ public class Pokemon {
 
 	@Override
 	public String toString() {
-		return "Pokemon [id=" + id + ", surname=" + surname + ", size=" + size + ", level=" + level + ", specie="
-				+ specie + ", xp=" + xp + ", hp=" + hp + ", strength=" + strength + "]";
+		return "Pokemon Summary \n id=" + getId() + ", Surname=" + surname + ", Size=" + size + ", Level=" + level + ", Specie="
+				+ specie + ", Current xp=" + xp + ", HP=" + hp + ", STR=" + strength + "\n";
 	}
 
+	public int getId() {
+		return id ;
+		}
+
+	//same process for setters
 
 
 

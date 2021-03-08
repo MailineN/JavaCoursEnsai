@@ -1,48 +1,51 @@
 package core;
+import core.Sweet;
+import core.Pokemon;
+import core.Specie;
 
 public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("hello world!");
-		Specie bulbazaure = new Specie(0,"Bulbazaure","GRASS",10,1);
-		Pokemon myPokemon = new Pokemon("Bulbazaure 1", 12f, 1, bulbazaure);
-		System.out.println(myPokemon.surname);
-		System.out.println(myPokemon.specie.name);
-		Pokemon myPokemon2 = new Pokemon("Bulbazaure 2", 12f, 58, bulbazaure);
-		System.out.println(myPokemon.level);
-		System.out.println(myPokemon.id);
-		System.out.println(myPokemon2.id);
+		Specie poussifeu = new Specie(0,"poussifeu","GRASS",10,1);
+		Pokemon pipou = new Pokemon("Pipou", 12f, 1, poussifeu);
+		System.out.println(pipou.surname);
+		System.out.println(pipou.specie.name);
+		Pokemon pouf = new Pokemon("Pouf", 12f, 58, poussifeu);
+		System.out.println(pipou.level);
+		System.out.println(pipou.getId());
+		System.out.println(pouf.getId());
 		
-		System.out.println(myPokemon);
+		System.out.println(pipou);
 		
 		for(int i=0; i<100; i++){
-			myPokemon.receiveXP(1);
-			System.out.println(myPokemon);
+			pipou.receiveXP(1);
+			System.out.println(pipou);
 		}
 		
-		Sweet s = new Sweet("malabar", 3);
-		myPokemon.eatSweet(s);
-		System.out.println(myPokemon);
-		System.out.println(myPokemon2);
-		myPokemon2.eatSweet(s);
-		System.out.println(myPokemon2);
+		Sweet s = new Sweet("Malabar", 3);
+		pipou.eatSweet(s);
+		System.out.println(pipou);
+		System.out.println(pouf);
+		pouf.eatSweet(s);
+		System.out.println(pouf);
 		
 		/*
 		 * Slide 6 : combat
 		 */
-		while(myPokemon.hp>0 && myPokemon2.hp>0) {
-			myPokemon.attack(myPokemon2);
-			if(myPokemon2.hp>0) {
-				myPokemon2.attack(myPokemon);
+		while(pipou.hp>0 && pouf.hp>0) {
+			pipou.attack(pouf);
+			if(pouf.hp>0) {
+				pouf.attack(pipou);
 			}
 		}
-		if(myPokemon.hp>0) {
-			myPokemon.receiveXP(5);
+		if(pipou.hp>0) {
+			pipou.receiveXP(5);
 		}else {
-			myPokemon2.receiveXP(5);
+			pouf.receiveXP(5);
 		}
-		System.out.println(myPokemon);
-		System.out.println(myPokemon2);
+		System.out.println(pipou);
+		System.out.println(pouf);
 	}
 
 }
