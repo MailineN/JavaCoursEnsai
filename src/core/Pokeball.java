@@ -5,7 +5,7 @@ public class Pokeball extends Items{
     public int mult; 
     public Pokeball(String name, int price){
         super(name,price);
-        if (name != "Greatball" && name != "Ultraball" ){
+        if (name != "Greatball" && name != "Ultraball"){
             this.name = "Greatball";
             System.out.println("Invalid name, default to Greatball");}
         if (name == "Greatball"){

@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("hello world!");
-		Specie poussifeu = new Specie(0,"poussifeu","GRASS",10,1);
+		Specie poussifeu = new Specie(0,"Poussifeu","Fire",10,1);
 		Pokemon pipou = new Pokemon("Pipou", 12.0, 1, poussifeu,40);
 		System.out.println(pipou.surname);
 		System.out.println(pipou.specie.name);
@@ -16,9 +16,6 @@ public class Main {
 		System.out.println(pipou.getId());
 		System.out.println(pouf.getId());
 		
-		/*
-		 * Slide 6 : combat
-		 */
 		while(pipou.hp>0 && pouf.hp>0) {
 			pipou.attack(pouf);
 			if(pouf.defense <90){
