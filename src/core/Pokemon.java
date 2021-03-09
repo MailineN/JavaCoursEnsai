@@ -4,7 +4,7 @@ public class Pokemon {
 	private int id;
 	private static int counter=0;
 	public final String surname;
-	public float size;
+	public double size;
 	public int level=1;
 	public Specie specie;
 	public int xp=0;
@@ -12,7 +12,7 @@ public class Pokemon {
 	public int strength;
 	public int defense; 
 
-	public Pokemon(String surname, float size, int level, Specie specie, int defense) {
+	public Pokemon(String surname, double size, int level, Specie specie, int defense) {
 		this.id = counter;
 		counter++;
 		this.surname = surname;

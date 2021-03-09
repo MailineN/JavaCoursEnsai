@@ -8,34 +8,25 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("hello world!");
 		Specie poussifeu = new Specie(0,"poussifeu","GRASS",10,1);
-		Pokemon pipou = new Pokemon("Pipou", 12f, 1, poussifeu,40);
+		Pokemon pipou = new Pokemon("Pipou", 12.0, 1, poussifeu,40);
 		System.out.println(pipou.surname);
 		System.out.println(pipou.specie.name);
-		Pokemon pouf = new Pokemon("Pouf", 12f, 58, poussifeu,30);
+		Pokemon pouf = new Pokemon("Pouf", 12.0, 58, poussifeu,30);
 		System.out.println(pipou.level);
 		System.out.println(pipou.getId());
 		System.out.println(pouf.getId());
-		
-		System.out.println(pipou);
-		
-		for(int i=0; i<100; i++){
-			pipou.receiveXP(1);
-			System.out.println(pipou);
-		}
-		
-		Sweet s = new Sweet("Malabar", 150, 3);
-		pipou.eatSweet(s);
-		System.out.println(pipou);
-		System.out.println(pouf);
-		pouf.eatSweet(s);
-		System.out.println(pouf);
 		
 		/*
 		 * Slide 6 : combat
 		 */
 		while(pipou.hp>0 && pouf.hp>0) {
 			pipou.attack(pouf);
-			if(pouf.hp>0) {
+			if(pouf.defense <90){
+				pouf.defend();
+				System.out.println("Pouf defends !");
+			}
+			if(pouf.hp>0 && pouf.defense >= 90) {
+				System.out.println("Pouf attacks !");
 				pouf.attack(pipou);
 			}
 		}

@@ -1,6 +1,6 @@
 package core;
 import java.util.*;
-
+import core.Items;
 public class Inventory {
     public ArrayList<Items> items; 
     public Inventory(){
@@ -9,9 +9,9 @@ public class Inventory {
 
     public int getTotalPrice(){
         int price = 0; 
-        Iterator iter = items.iterator();
+        ListIterator<Items> iter = items.listIterator();
         while (iter.hasNext()){
-            price += iter.next().price;
+            price += (iter.next().price);
         }
         return price;
     }
