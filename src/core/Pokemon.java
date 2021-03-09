@@ -7,7 +7,7 @@ public class Pokemon {
 	public double size;
 	public int level=1;
 	public Specie specie;
-	public int xp=0;
+	private int xp=0;
 	public int hp;
 	public int strength;
 	public int defense; 
@@ -80,6 +80,7 @@ public class Pokemon {
 	public int getId() {
 		return id ;
 		}
+	
 
 	//same process for setters
 
