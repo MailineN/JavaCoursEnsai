@@ -4,14 +4,14 @@ public class Pokemon {
 	private int id;
 	private static int counter=0;
 	private final String surname;
-	private float size;
+	private double size;
 	private int level=1;
-	private Specie specie;
+	private SpecieList specie;
 	private int xp=0;
 	private int hp;
 	private int strength;
 	
-	public Pokemon(String surname, float size, int level, Specie specie) {
+	public Pokemon(String surname, double size, int level, SpecieList specie) {
 		this.id = counter;
 		counter++;
 		this.surname = surname;
@@ -44,7 +44,7 @@ public class Pokemon {
 		}		
 	}
 	
-	public Pokemon(String surname, float size, int level, Specie specie, int xp) {
+	public Pokemon(String surname, float size, int level, SpecieList specie, int xp) {
 		this(surname,size,level,specie);
 		this.xp=xp;
 	}
@@ -71,7 +71,7 @@ public class Pokemon {
 		return hp;
 	}
 
-	public Specie getSpecie() {
+	public SpecieList getSpecie() {
 		return specie;
 	}
 

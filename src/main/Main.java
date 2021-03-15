@@ -4,52 +4,50 @@ import core.GreatBall;
 import core.Player;
 import core.Pokeball;
 import core.Pokemon;
-import core.Specie;
+import core.SpecieList;
 import core.Sweet;
 
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("hello world!");
-		Specie bulbazaure = new Specie(0,"Bulbazaure","GRASS",10,1);
-		Pokemon myPokemon = new Pokemon("Bulbazaure 1", 12f, 1, bulbazaure);
-		System.out.println(myPokemon.getSurname());
-		System.out.println(myPokemon.getSpecie().getName());
-		Pokemon myPokemon2 = new Pokemon("Bulbazaure 2", 12f, 58, bulbazaure);
-		System.out.println(myPokemon.getLevel());
-		System.out.println(myPokemon.getId());
-		System.out.println(myPokemon2.getId());
+		Pokemon Pif = new Pokemon("Pif", 12f, 1, SpecieList.HERICENDRE);
+		System.out.println(Pif.getSurname());
+		System.out.println(Pif.getSpecie().getName());
+		Pokemon Pouf = new Pokemon("Pouf", 12f, 58, SpecieList.GERMIGNON);
+		System.out.println(Pif.getLevel());
+		System.out.println(Pif.getId());
+		System.out.println(Pouf.getId());
 		
-		System.out.println(myPokemon);
+		System.out.println(Pif);
 		
 		for(int i=0; i<100; i++){
-			myPokemon.receiveXP(1);
-			System.out.println(myPokemon);
+			Pif.receiveXP(1);
+			System.out.println(Pif);
 		}
 		
 		Sweet s = new Sweet("malabar", 3,7);
-		myPokemon.eatSweet(s);
-		System.out.println(myPokemon);
-		System.out.println(myPokemon2);
-		myPokemon2.eatSweet(s);
-		System.out.println(myPokemon2);
+		Pif.eatSweet(s);
+		System.out.println(Pif);
+		System.out.println(Pouf);
+		Pouf.eatSweet(s);
+		System.out.println(Pouf);
 		
 		/*
 		 * Slide 6 : combat
 		 */
-		while(myPokemon.getHp()>0 && myPokemon2.getHp()>0) {
-			myPokemon.attack(myPokemon2);
-			if(myPokemon2.getHp()>0) {
-				myPokemon2.attack(myPokemon);
+		while(Pif.getHp()>0 && Pouf.getHp()>0) {
+			Pif.attack(Pouf);
+			if(Pouf.getHp()>0) {
+				Pouf.attack(Pif);
 			}
 		}
-		if(myPokemon.getHp()>0) {
-			myPokemon.receiveXP(5);
+		if(Pif.getHp()>0) {
+			Pif.receiveXP(5);
 		}else {
-			myPokemon2.receiveXP(5);
+			Pouf.receiveXP(5);
 		}
-		System.out.println(myPokemon);
-		System.out.println(myPokemon2);
+		System.out.println(Pif);
+		System.out.println(Pouf);
 		
 		System.out.println(s);
 		Pokeball myPokeball = new GreatBall("myGreatBall", 10, 5);
