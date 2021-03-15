@@ -3,94 +3,81 @@ package core;
 public class Pokemon {
 	private int id;
 	private static int counter=0;
-	public final String surname;
-	public double size;
-	public int level=1;
-	public Specie specie;
+	private final String surname;
+	private float size;
+	private int level=1;
+	private Specie specie;
 	private int xp=0;
-	public int hp;
-	public int strength;
-	public int defense; 
-
-	public Pokemon(String surname, double size, int level, Specie specie, int defense) {
+	private int hp;
+	private int strength;
+	
+	public Pokemon(String surname, float size, int level, Specie specie) {
 		this.id = counter;
 		counter++;
 		this.surname = surname;
 		this.size = size;
-		if (level < 1 || level >5){
-			System.out.println("Invalid level, default to 0");
-			this.level = 0;
-		} else {
+		if(level<=0 || level>5){
+			System.out.println("Niveau incorrect pour "+surname);
+		}else{
 			this.level = level;
 		}
-		this.level = level;
-		
 		this.specie = specie;
-		this.hp=specie.initialHp;
-		this.strength=specie.initialStrength;
-		this.defense = defense; 
+		this.hp=specie.getInitialHp();
+		this.strength=specie.getInitialStrength();
 	}
-
-	public static int getLevelFromXp(int xp) {
-		int res=1;
-		if(xp>=5) {
-			res = 2;
-		}
-		if(xp>=15) {
-			res = 3;
-		}
-		if(xp>=30) {
-			res = 4;
-		}
-		if(xp>=100) {
-			res = 5;
-		}
-		return res;
-	}
-
+	
 	public void attack(Pokemon target) {
-		target.hp-=strength*(1-target.defense /100);
+		target.hp-=strength;
 	}
-
+	
 	public void receiveXP(int toto){
 		xp+=toto;
-		level = getLevelFromXp(xp);
+		level = Level.getLevelFromXp(xp);
 	}
-
+	
 	public void eatSweet(Sweet s){
-		if(s.alreadyEaten){
+		if(s.isAlreadyEaten()){
 			System.out.println("Avertissement : bonbon déjà mangé");
 		}else{
-			receiveXP(s.xp);
-			s.alreadyEaten=true;
-		}
+			receiveXP(s.getXp());
+			s.setAlreadyEaten(true);
+		}		
 	}
-
-	public Pokemon(String surname, float size, int level, Specie specie, int defense ,int xp) {
-		this(surname,size,level,specie,defense);
+	
+	public Pokemon(String surname, float size, int level, Specie specie, int xp) {
+		this(surname,size,level,specie);
 		this.xp=xp;
 	}
 
 	@Override
 	public String toString() {
-		return "Pokemon Summary \n id=" + getId() + ", Surname=" + surname + ", Size=" + size + ", Level=" + level + ", Specie="
-				+ specie + ", Current xp=" + xp + ", HP=" + hp + ", STR=" + strength + "\n";
+		return "Pokemon [id=" + id + ", surname=" + surname + ", size=" + size + ", level=" + level + ", specie="
+				+ specie + ", xp=" + xp + ", hp=" + hp + ", strength=" + strength + "]";
 	}
 
 	public int getId() {
-		return id ;
-		}
-	
-
-	//same process for setters
-
-	public void defend(){
-		defense+=10;
+		return id;
 	}
 
+	public String getSurname() {
+		return surname;
+	}
 
+	public int getLevel() {
+		return level;
+	}
 
+	public int getHp() {
+		return hp;
+	}
 
+	public Specie getSpecie() {
+		return specie;
+	}
 
-
+	
+	
+	
+	
+	
 }

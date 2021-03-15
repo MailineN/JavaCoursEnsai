@@ -1,13 +1,26 @@
 package core;
 
-public class Sweet extends Items{
-	public int xp;
-	public boolean alreadyEaten=false;
+public class Sweet extends Item {
 	
-	public Sweet(String name, int price,int xp) {
-		super(name,price);
-		this.name = name;
+	private int xp;
+	private boolean alreadyEaten=false;
+	
+	public Sweet(String name, int xp, int price) {
+		super(name,price,"one use");
 		this.xp = xp;
 	}
 
+	public boolean isAlreadyEaten() {
+		return alreadyEaten;
+	}
+
+	public void setAlreadyEaten(boolean alreadyEaten) {
+		this.alreadyEaten = alreadyEaten;
+	}
+
+	public int getXp() {
+		return xp;
+	}
+
+	
 }

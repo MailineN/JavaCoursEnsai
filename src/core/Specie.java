@@ -2,11 +2,27 @@ package core;
 
 public class Specie {
 	private int number;
-	public String name;
-	public String type;
-	public int initialHp;
-	public int initialStrength;
+	private String name;
+	private String type;
+	private int initialHp;
+	private int initialStrength;
 	
+	public int getInitialHp() {
+		return initialHp;
+	}
+	
+	
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public int getInitialStrength() {
+		return initialStrength;
+	}
+
 	public Specie(int number, String name, String type, int initialHp, int initialStrength) {
 		super();
 		this.number = number;
