@@ -15,6 +15,10 @@ public abstract class Item {
 	public String toString() {
 		return name + " (" + price + " pokedollars)";
 	}
+
+	public int getPrice(){
+		return price;
+	}
 	
 	
 }

@@ -10,6 +10,7 @@ public class Pokemon {
 	private int xp=0;
 	private int hp;
 	private int strength;
+	private int defense; 
 	
 	public Pokemon(String surname, double size, int level, SpecieList specie) {
 		this.id = counter;
@@ -23,11 +24,12 @@ public class Pokemon {
 		}
 		this.specie = specie;
 		this.hp=specie.getInitialHp();
-		this.strength=specie.getInitialStrength();
+		this.strength= specie.getInitialStrength();
+		this.defense = specie.getInitialDefense();
 	}
 	
 	public void attack(Pokemon target) {
-		target.hp-=strength;
+		target.hp-=strength*(1-target.defense /100);
 	}
 	
 	public void receiveXP(int toto){
@@ -75,9 +77,15 @@ public class Pokemon {
 		return specie;
 	}
 
-	
-	
-	
+	public void defend(){
+		if (defense <90){
+			defense+=10;
+			System.out.println(surname +" defends!");
+		} else {
+			System.out.println(surname +" has reached its max defense");
+		}
+			
+	}
 	
 	
 }
